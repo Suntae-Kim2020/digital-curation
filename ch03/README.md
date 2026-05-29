@@ -1,21 +1,70 @@
 # Chapter 3. 데이터 수집 실습
 
-> 🚧 본 챕터의 자료는 집필 중입니다.
+## 📁 이 폴더의 파일
 
-## 📁 예정 자료
-
-- `ch03_public_data_api.ipynb` — 공공데이터포털 API 호출 실습
-- `ch03_nl_lod.ipynb` — 국립중앙도서관 LOD Open API 실습
-- `ch03_webcrawl_basics.ipynb` — robots.txt 점검 + BeautifulSoup 기초
+| 파일 | 용도 |
+|------|------|
+| `ch03_data_collection.ipynb` | **§3.2~§3.4 실습 노트북** (Colab에서 바로 실행) |
+| `ch03_collected.jsonl` | arXiv RAG 논문 5건 매핑 결과 (Ch.2 스키마) |
+| `build_ch03_files.py` | arXiv API 호출 + 매핑 + 폴백 빌드 스크립트 |
+| `build_notebook.py` | 노트북 빌더 |
 
 ## 🎯 학습 목표
 
-- 공공데이터·학술 API에서 메타데이터를 수집한다
-- robots.txt와 라이선스를 점검한 후 웹 크롤링을 수행한다
-- 수집 결과를 Ch.2의 스키마에 매핑한다
+- 어떤 출처에서 어떤 권리 조건으로 데이터를 수집할지 판단
+- arXiv·공공데이터 API 호출 + 인증키 안전 관리
+- robots.txt 점검 + 웹 크롤링 매너
+- 수집 결과를 Ch.2 §2.4 스키마에 매핑
 
-## 🔗 참고 링크
+## 🚀 실습 시작하기
 
+### 방법 1 — Google Colab (권장)
+
+1. `ch03_data_collection.ipynb`를 클릭한다
+2. GitHub URL 앞에 `https://colab.research.google.com/github/`를 붙여 **Colab에서 열기**
+3. 셀을 순서대로 실행한다 — 인증키 없이 즉시 작동
+
+### 방법 2 — 로컬 Python
+
+```
+# 🪟 Windows (PowerShell)
+git clone https://github.com/Suntae-Kim2020/digital-curation.git
+cd digital-curation\ch03
+python -m pip install requests beautifulsoup4 lxml pandas jupyter
+jupyter notebook ch03_data_collection.ipynb
+
+# 🍎 Mac (zsh/bash)
+git clone https://github.com/Suntae-Kim2020/digital-curation.git
+cd digital-curation/ch03
+python3 -m pip install requests beautifulsoup4 lxml pandas jupyter
+jupyter notebook ch03_data_collection.ipynb
+```
+
+## 📊 산출물
+
+- `ch03_collected.jsonl` — 수집된 5건의 RAG 논문 (Ch.2 22필드 스키마)
+- 본문에서 의미 차원 4필드(`summary`, `keywords`, `chunk_ids`, `embedding_id`)는 비어 있음
+- 후속 챕터에서 단계적으로 채움
+
+## 🔗 본서 연결
+
+- 사전: Ch.2 §2.2 Dublin Core / §2.3 AI 확장 / §2.4 스키마
+- 이후: Ch.4 §4.1 데이터 정제 → 이 폴더의 `ch03_collected.jsonl`을 입력으로 사용
+
+## ⚠️ 알려진 함정
+
+- **arXiv rate limit**: 짧은 시간 다수 호출 → 429 차단. `time.sleep(3)` 필수
+- **공공데이터포털 인증키**: 환경변수 `DATA_GO_KR_KEY`로 안전 관리 (책 §3.2.2)
+- **robots.txt**: 크롤링 전 매번 점검 (책 §3.3.2 + 노트북 4단계)
+- **API 키 None**: `os.getenv()`가 None이면 명시적 `raise` (책의 표준 패턴)
+
+## 📚 외부 참고
+
+- arXiv API: https://info.arxiv.org/help/api/index.html
+- requests: https://requests.readthedocs.io/
+- BeautifulSoup: https://www.crummy.com/software/BeautifulSoup/
+- OAI-PMH: https://www.openarchives.org/pmh/
+- IIIF: https://iiif.io/
 - 공공데이터포털: https://www.data.go.kr
-- 국립중앙도서관 LOD: https://www.nl.go.kr/NL/contents/N20102000000.do
-- AI Hub: https://aihub.or.kr/
+- 국립중앙도서관: https://www.nl.go.kr/
+- KISTI ScienceON: https://scienceon.kisti.re.kr/
