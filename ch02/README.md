@@ -17,29 +17,26 @@
 - AI 활용을 위한 6개 확장 필드 설계
 - Pandas로 스키마를 CSV로 정의·검증
 
-## 🚀 실습 시작하기
+## 🚀 실습 시작하기 (본인 PC에서 직접)
 
-### 방법 1 — Google Colab (권장)
-
-1. [`ch02_metadata_schema.ipynb`](./ch02_metadata_schema.ipynb)를 클릭한다.
-2. 우측 상단의 **"Open in Colab"** 버튼을 누른다(자동으로 표시되지 않으면 GitHub URL 앞에 `https://colab.research.google.com/github/`를 붙여 수동 변환).
-3. 셀을 순서대로 실행한다.
-
-### 방법 2 — 로컬 Python
+이 실습은 본서 Ch.0에서 만든 본인 PC의 로컬 환경에서 진행한다.
+Python·VS Code·Claude Code·가상환경(.venv)·Jupyter는 Ch.0에서 이미 설치된 것으로 가정한다.
 
 ```
 # 🪟 Windows (PowerShell)
-git clone https://github.com/Suntae-Kim2020/digital-curation.git
-cd digital-curation\ch02
-python -m pip install pandas jupyter
-jupyter notebook ch02_metadata_schema.ipynb
+cd C:\DC\digital-curation
+..\.venv\Scripts\Activate.ps1     # 가상환경 활성화 → (.venv) 표시 확인
+pip install pandas                # 본 챕터의 새 라이브러리
+jupyter notebook ch02\ch02_metadata_schema.ipynb
 
 # 🍎 Mac (zsh/bash)
-git clone https://github.com/Suntae-Kim2020/digital-curation.git
-cd digital-curation/ch02
-python3 -m pip install pandas jupyter
-jupyter notebook ch02_metadata_schema.ipynb
+cd ~/dc/digital-curation
+source ../.venv/bin/activate      # 가상환경 활성화 → (.venv) 표시 확인
+pip install pandas                # 본 챕터의 새 라이브러리
+jupyter notebook ch02/ch02_metadata_schema.ipynb
 ```
+
+> Ch.0에서 가상환경을 만들지 않았다면 먼저 본서 Ch.0 §0.7을 따라 환경을 준비한다.
 
 ## 📊 산출물
 

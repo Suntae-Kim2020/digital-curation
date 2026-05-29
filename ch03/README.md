@@ -16,29 +16,26 @@
 - robots.txt 점검 + 웹 크롤링 매너
 - 수집 결과를 Ch.2 §2.4 스키마에 매핑
 
-## 🚀 실습 시작하기
+## 🚀 실습 시작하기 (본인 PC에서 직접)
 
-### 방법 1 — Google Colab (권장)
-
-1. `ch03_data_collection.ipynb`를 클릭한다
-2. GitHub URL 앞에 `https://colab.research.google.com/github/`를 붙여 **Colab에서 열기**
-3. 셀을 순서대로 실행한다 — 인증키 없이 즉시 작동
-
-### 방법 2 — 로컬 Python
+이 실습은 본서 Ch.0에서 만든 본인 PC의 로컬 환경에서 진행한다.
 
 ```
 # 🪟 Windows (PowerShell)
-git clone https://github.com/Suntae-Kim2020/digital-curation.git
-cd digital-curation\ch03
-python -m pip install requests beautifulsoup4 lxml pandas jupyter
-jupyter notebook ch03_data_collection.ipynb
+cd C:\DC\digital-curation
+..\.venv\Scripts\Activate.ps1     # 가상환경 활성화 → (.venv) 표시 확인
+pip install requests beautifulsoup4 lxml
+jupyter notebook ch03\ch03_data_collection.ipynb
 
 # 🍎 Mac (zsh/bash)
-git clone https://github.com/Suntae-Kim2020/digital-curation.git
-cd digital-curation/ch03
-python3 -m pip install requests beautifulsoup4 lxml pandas jupyter
-jupyter notebook ch03_data_collection.ipynb
+cd ~/dc/digital-curation
+source ../.venv/bin/activate      # 가상환경 활성화 → (.venv) 표시 확인
+pip install requests beautifulsoup4 lxml
+jupyter notebook ch03/ch03_data_collection.ipynb
 ```
+
+> Ch.2를 이미 거쳤다면 pandas는 설치되어 있다. requests·beautifulsoup4·lxml만 추가 설치하면 된다.
+> Ch.0에서 가상환경을 만들지 않았다면 먼저 본서 Ch.0 §0.7을 따라 환경을 준비한다.
 
 ## 📊 산출물
 

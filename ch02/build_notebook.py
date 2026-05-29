@@ -46,19 +46,17 @@ cells.append(new_markdown_cell(
 ))
 
 cells.append(new_markdown_cell(
-    "## 0단계 · 환경 준비\n"
+    "## 0단계 · 환경 점검\n"
     "\n"
-    "Colab에서는 별도 설치가 필요 없다. 로컬 환경에서 실행한다면 아래 셀에서 pandas를 설치한다.\n"
+    "본 실습은 본서 Ch.0에서 만든 본인 PC의 로컬 가상환경(.venv)에서 진행한다.\n"
+    "터미널 프롬프트에 (.venv) 표시가 보이면 활성화된 상태다.\n"
     "\n"
-    "**🪟 Windows (PowerShell)** : `python -m pip install pandas`\n"
+    "본 챕터에서 새로 쓰는 라이브러리는 pandas 하나다. 설치하지 않았다면 터미널에서 다음 한 줄로 설치한다.\n"
     "\n"
-    "**🍎 Mac (zsh/bash)**      : `python3 -m pip install pandas`\n"
+    "**🪟 Windows (PowerShell)** · **🍎 Mac (zsh/bash)** 모두: `pip install pandas`"
 ))
 
 cells.append(new_code_cell(
-    "# 로컬 환경에서만 필요 — Colab은 이미 설치되어 있음\n"
-    "# !pip install -q pandas\n"
-    "\n"
     "import pandas as pd\n"
     "print('pandas', pd.__version__)"
 ))

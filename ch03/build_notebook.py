@@ -35,19 +35,21 @@ cells.append(new_markdown_cell(
 ))
 
 cells.append(new_markdown_cell(
-    "## 0단계 · 환경\n"
+    "## 0단계 · 환경 점검\n"
     "\n"
-    "Colab은 requests·beautifulsoup4가 이미 설치되어 있다. 로컬에서는 다음을 실행한다.\n"
+    "본 실습은 본서 Ch.0에서 만든 본인 PC의 로컬 가상환경(.venv)에서 진행한다.\n"
+    "터미널 프롬프트에 (.venv) 표시가 보이면 활성화된 상태다.\n"
     "\n"
-    "**🪟 Windows (PowerShell)** : `python -m pip install requests beautifulsoup4 lxml`\n"
+    "Ch.2에서 pandas는 이미 깔았다. 본 챕터에서 새로 쓰는 라이브러리는 세 가지다.\n"
     "\n"
-    "**🍎 Mac (zsh/bash)**      : `python3 -m pip install requests beautifulsoup4 lxml`"
+    "- **requests** — 사람을 위한 HTTP 라이브러리. 한 줄 GET 호출로 응답을 받는다.\n"
+    "- **beautifulsoup4** — HTML에서 원하는 요소(CSS 선택자)를 골라낸다.\n"
+    "- **lxml** — BeautifulSoup의 권장 파서 엔진. 깨진 HTML도 견고하게 처리하고 빠르다.\n"
+    "\n"
+    "**🪟 Windows (PowerShell)** · **🍎 Mac (zsh/bash)** 모두: `pip install requests beautifulsoup4 lxml`"
 ))
 
 cells.append(new_code_cell(
-    "# 로컬 환경에서만 필요\n"
-    "# !pip install -q requests beautifulsoup4 lxml\n"
-    "\n"
     "import requests, time, json\n"
     "import pandas as pd\n"
     "from xml.etree import ElementTree as ET\n"
