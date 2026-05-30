@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Chapter 1.4.1 진단 워크시트 Excel 빌더
+Chapter 2.4.1 진단 워크시트 Excel 빌더
 """
 from openpyxl import Workbook
 from openpyxl.styles import Font, Alignment, PatternFill, Border, Side
@@ -48,7 +48,7 @@ ws.row_dimensions[row].height = 30
 row += 1
 
 # 부제
-ws.cell(row=row, column=1, value="『AI 레디 데이터와 디지털 큐레이션』 Chapter 1.4 실습 워크시트")
+ws.cell(row=row, column=1, value="『AI 레디 데이터와 디지털 큐레이션』 Chapter 2.4 실습 워크시트")
 ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=4)
 c = ws.cell(row=row, column=1)
 c.font = Font(name=KOR_FONT, size=9, italic=True, color="666666")
@@ -196,9 +196,9 @@ note = ws.cell(
     row=row,
     column=1,
     value=(
-        "💡 합계 7점 이하 → Ch.2~4 집중 학습 권장 | "
-        "10점 이상 → Ch.5~7 집중 학습 권장 | "
-        "본 워크시트는 교재 Chapter 1.4.1 실습용입니다."
+        "💡 합계 7점 이하 → Ch.3~4 집중 학습 권장 | "
+        "10점 이상 → Ch.6~7 집중 학습 권장 | "
+        "본 워크시트는 교재 Chapter 2.4.1 실습용입니다."
     ),
 )
 ws.merge_cells(start_row=row, start_column=1, end_row=row, end_column=4)
@@ -206,5 +206,5 @@ note.font = Font(name=KOR_FONT, size=9, italic=True, color="666666")
 note.alignment = Alignment(horizontal="left", vertical="center", wrap_text=True)
 ws.row_dimensions[row].height = 30
 
-wb.save("ch01_diagnosis.xlsx")
-print("Saved: ch01_diagnosis.xlsx")
+wb.save("ch02_diagnosis.xlsx")
+print("Saved: ch02_diagnosis.xlsx")

@@ -1,21 +1,20 @@
-# Chapter 5. 임베딩과 벡터 검색
+# Chapter 5. 텍스트 전처리와 청킹
 
 > 🚧 본 챕터의 자료는 집필 중입니다.
 
 ## 📁 예정 자료
 
-- `ch05_embedding_intro.ipynb` — 임베딩 개념과 시각화
-- `ch05_gemini_embedding.ipynb` — Gemini text-embedding-004 호출
-- `ch05_chromadb_search.ipynb` — ChromaDB 적재·검색·메타데이터 필터링
+- `ch05_pdf_extract.ipynb` — PyMuPDF로 PDF 본문 추출
+- `ch05_kiwi_morph.ipynb` — Kiwi 형태소 분석 실습
+- `ch05_chunking_strategies.ipynb` — 3가지 청킹 전략 비교
 
 ## 🎯 학습 목표
 
-- 임베딩 개념과 의미 공간을 시각적으로 이해한다
-- 한국어에 적합한 임베딩 모델을 선택한다
-- ChromaDB로 의미 검색 시스템을 구축한다
+- PDF·HWP 등에서 텍스트를 안전하게 추출한다
+- 한국어 형태소 분석으로 키워드·명사 후보를 추출한다
+- 고정·문장·의미 단위 청킹 전략을 비교 적용한다
 
 ## 🔗 참고 링크
 
-- ChromaDB: https://docs.trychroma.com/
-- BGE-M3 (한국어 강자): https://huggingface.co/BAAI/bge-m3
-- Gemini Embedding 문서: https://ai.google.dev/gemini-api/docs/embeddings
+- Kiwi 형태소 분석기: https://github.com/bab2min/Kiwi
+- PyMuPDF: https://pymupdf.readthedocs.io/
