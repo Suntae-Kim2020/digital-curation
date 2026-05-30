@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-05-30",
+  "codes": [
+    {
+      "code": "CC-BY-4.0",
+      "name": "Creative Commons Attribution 4.0",
+      "family": "CC",
+      "url": "https://creativecommons.org/licenses/by/4.0/",
+      "summary": "출처 표시만 하면 자유 이용",
+      "ai_train": true,
+      "redistribute": true,
+      "modify": true,
+      "commercial": true
+    },
+    {
+      "code": "CC-BY-SA-4.0",
+      "name": "Creative Commons Attribution-ShareAlike 4.0",
+      "family": "CC",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "summary": "출처 표시 + 같은 조건으로 공유",
+      "ai_train": true,
+      "redistribute": true,
+      "modify": true,
+      "commercial": true,
+      "note": "파생물도 같은 라이선스로 공유 의무"
+    },
+    {
+      "code": "CC-BY-NC-4.0",
+      "name": "Creative Commons Attribution-NonCommercial 4.0",
+      "family": "CC",
+      "url": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "summary": "출처 표시 + 비영리만",
+      "ai_train": true,
+      "redistribute": true,
+      "modify": true,
+      "commercial": false
+    },
+    {
+      "code": "CC-BY-ND-4.0",
+      "name": "Creative Commons Attribution-NoDerivatives 4.0",
+      "family": "CC",
+      "url": "https://creativecommons.org/licenses/by-nd/4.0/",
+      "summary": "출처 표시 + 변경 금지",
+      "ai_train": true,
+      "redistribute": true,
+      "modify": false,
+      "commercial": true
+    },
+    {
+      "code": "CC0",
+      "name": "Creative Commons Zero (Public Domain Dedication)",
+      "family": "CC",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "summary": "공유 자산, 조건 없음",
+      "ai_train": true,
+      "redistribute": true,
+      "modify": true,
+      "commercial": true
+    },
+    {
+      "code": "KOGL-1",
+      "name": "공공누리 제1유형 (출처표시)",
+      "family": "KOGL",
+      "url": "https://www.kogl.or.kr/info/license.do",
+      "summary": "자유 이용 + 출처 표시",
+      "ai_train": true,
+      "redistribute": true,
+      "modify": true,
+      "commercial": true
+    },
+    {
+      "code": "KOGL-2",
+      "name": "공공누리 제2유형 (출처표시 + 상업적 이용금지)",
+      "family": "KOGL",
+      "url": "https://www.kogl.or.kr/info/license.do",
+      "summary": "비상업 이용만",
+      "ai_train": true,
+      "redistribute": true,
+      "modify": true,
+      "commercial": false
+    },
+    {
+      "code": "KOGL-3",
+      "name": "공공누리 제3유형 (출처표시 + 변경금지)",
+      "family": "KOGL",
+      "url": "https://www.kogl.or.kr/info/license.do",
+      "summary": "원본 유지",
+      "ai_train": true,
+      "redistribute": true,
+      "modify": false,
+      "commercial": true
+    },
+    {
+      "code": "KOGL-4",
+      "name": "공공누리 제4유형 (출처표시 + 상업적 이용금지 + 변경금지)",
+      "family": "KOGL",
+      "url": "https://www.kogl.or.kr/info/license.do",
+      "summary": "가장 제한적",
+      "ai_train": true,
+      "redistribute": true,
+      "modify": false,
+      "commercial": false
+    },
+    {
+      "code": "ARXIV-NONEXCLUSIVE",
+      "name": "arXiv non-exclusive license to distribute",
+      "family": "ARXIV",
+      "url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "summary": "arXiv 배포 비독점 라이선스 (저자에게 저작권 유지)",
+      "ai_train": true,
+      "redistribute": false,
+      "modify": false,
+      "commercial": false,
+      "note": "원본을 그대로 재배포하지 않는 한 학술 분석은 가능"
+    },
+    {
+      "code": "ALL-RIGHTS-RESERVED",
+      "name": "전통적 모든 권리 보유",
+      "family": "PROPRIETARY",
+      "url": "",
+      "summary": "사용 전 저작권자 허락 필요",
+      "ai_train": false,
+      "redistribute": false,
+      "modify": false,
+      "commercial": false,
+      "note": "TDM 면책 조항 적용 검토 필요 (책 §10.1.2)"
+    },
+    {
+      "code": "INTERNAL",
+      "name": "자관 내부 자료",
+      "family": "INTERNAL",
+      "url": "",
+      "summary": "자관 정책에 따라 사용 (외부 노출 별도 검토)",
+      "ai_train": true,
+      "redistribute": false,
+      "modify": true,
+      "commercial": true,
+      "note": "자관 내부 RAG 챗봇 적합"
+    }
+  ]
+}
