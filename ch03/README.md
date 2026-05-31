@@ -4,7 +4,7 @@
 
 | 파일 | 용도 |
 |------|------|
-| `ch03_metadata_schema.ipynb` | **§3.4 실습 노트북** (Colab에서 바로 실행) |
+| `ch03_metadata_schema.ipynb` | **§3.4 실습 노트북** (본인 PC의 Jupyter 또는 VS Code 노트북에서 실행) |
 | `ch03_schema.csv` | Dublin Core 15 + AI 확장 6 = 22필드 스키마 |
 | `ch03_sample.jsonl` | 샘플 레코드 5건 (JSON Lines) |
 | `build_ch03_files.py` | 위 두 데이터 파일을 생성하는 빌드 스크립트 |
@@ -27,7 +27,7 @@ Python·VS Code·Claude Code·가상환경(.venv)·Jupyter는 Ch.1에서 이미 
 cd C:\DC\digital-curation
 ..\.venv\Scripts\Activate.ps1     # 가상환경 활성화 → (.venv) 표시 확인
 pip install pandas                # 본 챕터의 새 라이브러리
-jupyter notebook ch02\ch03_metadata_schema.ipynb
+jupyter notebook ch03\ch03_metadata_schema.ipynb
 
 # 🍎 Mac (zsh/bash)
 cd ~/dc/digital-curation

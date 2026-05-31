@@ -4,7 +4,7 @@
 
 | 파일 | 용도 |
 |------|------|
-| `ch04_data_collection.ipynb` | **§4.2~§4.4 실습 노트북** (Colab에서 바로 실행) |
+| `ch04_data_collection.ipynb` | **§4.2~§4.4 실습 노트북** (본인 PC의 Jupyter 또는 VS Code 노트북에서 실행) |
 | `ch04_collected.jsonl` | arXiv RAG 논문 5건 매핑 결과 (Ch.3 스키마) |
 | `build_ch04_files.py` | arXiv API 호출 + 매핑 + 폴백 빌드 스크립트 |
 | `build_notebook.py` | 노트북 빌더 |
@@ -25,7 +25,7 @@
 cd C:\DC\digital-curation
 ..\.venv\Scripts\Activate.ps1     # 가상환경 활성화 → (.venv) 표시 확인
 pip install requests beautifulsoup4 lxml
-jupyter notebook ch03\ch04_data_collection.ipynb
+jupyter notebook ch04\ch04_data_collection.ipynb
 
 # 🍎 Mac (zsh/bash)
 cd ~/dc/digital-curation

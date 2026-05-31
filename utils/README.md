@@ -1,21 +1,20 @@
 # /utils — 공통 유틸리티
 
-여러 챕터의 노트북에서 공통으로 import하는 유틸리티 코드입니다.
+여러 챕터의 노트북에서 공통으로 import할 수 있는 유틸리티 코드를 모아 두는 폴더입니다.
 
-## 예정 모듈
+본서는 **본인 PC 로컬 환경**(Python·Jupyter·VS Code)에서 모든 실습을 진행하므로 별도 환경 부트스트랩 모듈이 필요하지 않습니다. 각 챕터 폴더의 빌드 스크립트와 노트북이 곧 그 챕터의 재사용 가능한 모듈 역할을 합니다.
 
-| 파일 | 용도 |
-|------|------|
-| `colab_setup.py` | Colab 환경 초기화 (라이브러리 설치·API 키 로드) |
-| `gemini_client.py` | Gemini API 호출 래퍼 (재시도·캐시 포함) |
-| `chunker.py` | 3종 청킹 전략 함수 |
-| `metadata_validator.py` | 메타데이터 스키마 검증기 |
-
-## 사용 예 (예정)
+## 챕터 모듈에서 직접 import (현재 운용 방식)
 
 ```python
-# Colab 첫 셀
-!pip install -q git+https://github.com/Suntae-Kim2020/digital-curation.git
-from utils.colab_setup import init
-init()
+# 예: Ch.9 미니 프로젝트에서 Ch.8 RAG 모듈을 재사용
+import sys
+sys.path.insert(0, '../ch08')
+from ch08_rag import ask_rag
 ```
+
+폴더별로 모듈이 흩어져 있지만 본서 학습 흐름을 그대로 따라가는 구조라 자기 기관 응용 시 그대로 가져다 쓰기 좋습니다.
+
+## 향후 통합 예정
+
+여러 챕터에서 반복되는 코드(Gemini 클라이언트 래퍼, 청킹 함수, 스키마 검증기 등)는 추후 본 폴더로 모아 한 곳에서 import할 수 있도록 정리할 계획입니다. 그 시점에는 본 README에 모듈 목록을 다시 채워 두겠습니다.

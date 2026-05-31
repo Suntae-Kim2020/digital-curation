@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 r"""
-ch03_metadata_schema.ipynb 생성기 — Colab에서 바로 열 수 있는 노트북
+ch03_metadata_schema.ipynb 생성기 — 본인 PC의 Jupyter / VS Code 노트북에서 실행
 
-교재 Chapter 2 §3.4를 그대로 따른다.
+교재 Chapter 3 §3.4를 그대로 따른다.
 """
 import io
 import sys
