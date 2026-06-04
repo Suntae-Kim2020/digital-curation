@@ -155,7 +155,7 @@ def main():
     # Ch.3 AI 확장 6필드 진행률
     print("\n[Ch.3 §3.3 AI 확장 6필드 최종 채움 상태]")
     ext_fields = ["summary", "keywords", "chunk_ids",
-                  "embedding_id", "source_url", "license_code"]
+                  "embedding_flag", "source_url", "license_code"]
     for f in ext_fields:
         if f not in collected.columns:
             print(f"  {f:<15}: 0/{len(collected)} (없음)")
@@ -163,7 +163,8 @@ def main():
         filled = sum(
             1 for v in collected[f]
             if (isinstance(v, list) and v) or
-               (isinstance(v, str) and v.strip())
+               (isinstance(v, str) and v.strip()) or
+               (isinstance(v, bool) and v)
         )
         bar = "█" * filled + "░" * (len(collected) - filled)
         print(f"  {f:<15}: {filled}/{len(collected)}  {bar}")

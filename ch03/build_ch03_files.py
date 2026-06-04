@@ -40,7 +40,7 @@ schema_rows = [
     {"field": "source_url",   "type": "string",   "required": True,  "category": "AI", "desc": "원본 URL"},
     {"field": "license_code", "type": "string",   "required": True,  "category": "AI", "desc": "CC-BY-4.0 등 표준 코드"},
     {"field": "chunk_ids",    "type": "string[]", "required": False, "category": "AI", "desc": "청크 ID (Ch.5 §5.4)"},
-    {"field": "embedding_id", "type": "string",   "required": False, "category": "AI", "desc": "벡터DB ID (Ch.6 §6.3)"},
+    {"field": "embedding_flag","type": "boolean", "required": False, "category": "AI", "desc": "임베딩 처리 완료 여부 (Ch.6 §6.5)"},
 ]
 schema = pd.DataFrame(schema_rows)
 
@@ -75,7 +75,7 @@ sample_rows = [
         "source_url": "https://github.com/Suntae-Kim2020/digital-curation",
         "license_code": "ALL-RIGHTS-RESERVED",
         "chunk_ids": [],
-        "embedding_id": "",
+        "embedding_flag": False,
     },
     {
         "id": "R002",
@@ -99,7 +99,7 @@ sample_rows = [
         "source_url": "https://doi.org/10.1038/sdata.2016.18",
         "license_code": "CC-BY-4.0",
         "chunk_ids": [],
-        "embedding_id": "",
+        "embedding_flag": False,
     },
     {
         "id": "R003",
@@ -123,7 +123,7 @@ sample_rows = [
         "source_url": "https://www.data.go.kr/",
         "license_code": "KOGL-1",
         "chunk_ids": [],
-        "embedding_id": "",
+        "embedding_flag": False,
     },
     {
         "id": "R004",
@@ -147,7 +147,7 @@ sample_rows = [
         "source_url": "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/",
         "license_code": "CC-BY-4.0",
         "chunk_ids": [],
-        "embedding_id": "",
+        "embedding_flag": False,
     },
     {
         "id": "R005",
@@ -171,7 +171,7 @@ sample_rows = [
         "source_url": "https://schema.org/",
         "license_code": "CC-BY-SA-3.0",
         "chunk_ids": [],
-        "embedding_id": "",
+        "embedding_flag": False,
     },
 ]
 sample = pd.DataFrame(sample_rows)

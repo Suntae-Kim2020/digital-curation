@@ -52,7 +52,7 @@ jupyter notebook ch03/ch03_metadata_schema.ipynb
   - Ch.4 §4.4 수집한 외부 데이터를 이 스키마에 매핑
   - Ch.5 §5.3 LLM·형태소 분석으로 `keywords` 채우기
   - Ch.5 §5.4 청킹 후 `chunk_ids` 채우기
-  - Ch.6 §6.3 벡터DB 적재 후 `embedding_id` 채우기
+  - Ch.6 §6.5 벡터DB 적재 후 `embedding_flag` True로 켜기
   - Ch.7 §7.4 LLM 자동 요약으로 `summary` 채우기
 
 ## 📚 외부 참고 링크

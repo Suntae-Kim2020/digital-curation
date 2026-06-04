@@ -241,7 +241,7 @@ cells.append(new_code_cell(
     "complete = pd.read_json('ch07_collected_complete.jsonl', lines=True)\n"
     "\n"
     "ai_fields = ['summary', 'keywords', 'chunk_ids',\n"
-    "             'embedding_id', 'source_url', 'license_code']\n"
+    "             'embedding_flag', 'source_url', 'license_code']\n"
     "for f in ai_fields:\n"
     "    filled = sum(1 for v in complete[f]\n"
     "                 if (isinstance(v, list) and v) or\n"

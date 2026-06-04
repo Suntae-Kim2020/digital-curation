@@ -112,7 +112,7 @@ def main():
             "source_url":   f"file://{os.path.abspath(path)}",
             "license_code": LICENSE_DEFAULT,
             "chunk_ids":    [],
-            "embedding_id": "",
+            "embedding_flag": False,
         }
         records.append(record)
         print(f"  [OK]  {path}  ({len(description):,}자)")

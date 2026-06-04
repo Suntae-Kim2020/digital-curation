@@ -247,7 +247,7 @@ cells.append(new_markdown_cell(
     "- Ch.6 §6.1 : 임베딩 개념과 의미 공간 시각화\n"
     "- Ch.6 §6.2 : Gemini text-embedding-004 호출\n"
     "- Ch.6 §6.3 : ch05_chunks.jsonl을 ChromaDB에 적재 → 의미 검색 가능\n"
-    "- Ch.6 §6.4 : embedding_id 필드 채우고 의미 기반 자료 조회"
+    "- Ch.6 §6.5 : embedding_flag 켜고 의미 기반 자료 조회"
 ))
 
 nb["cells"] = cells

@@ -18,7 +18,7 @@
 - ChromaDB PersistentClient에 컬렉션을 만들고 청크를 적재한다
 - 사용자 질의에 의미적으로 가까운 청크 상위 N개를 찾는다
 - 메타데이터로 검색 범위를 좁힌다
-- Ch.3 스키마의 `embedding_id` 필드를 채운다
+- Ch.3 스키마의 `embedding_flag` 필드를 True로 켠다
 
 ## 🚀 실습 시작하기 (본인 PC에서 직접)
 

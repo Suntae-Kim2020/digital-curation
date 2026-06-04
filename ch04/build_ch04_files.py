@@ -55,7 +55,7 @@ def map_arxiv_entry(e, ns):
         "source_url":   e.find("atom:id", ns).text,
         "license_code": "ARXIV-NONEXCLUSIVE",
         "chunk_ids":    [],
-        "embedding_id": "",
+        "embedding_flag": False,
     }
 
 
@@ -85,7 +85,7 @@ MOCK_RECORDS = [
         "source_url": "http://arxiv.org/abs/2005.11401v4",
         "license_code": "ARXIV-NONEXCLUSIVE",
         "chunk_ids": [],
-        "embedding_id": "",
+        "embedding_flag": False,
     },
     {
         "id": "arxiv:2312.10997v5",
@@ -109,7 +109,7 @@ MOCK_RECORDS = [
         "source_url": "http://arxiv.org/abs/2312.10997v5",
         "license_code": "ARXIV-NONEXCLUSIVE",
         "chunk_ids": [],
-        "embedding_id": "",
+        "embedding_flag": False,
     },
     {
         "id": "arxiv:2401.18059v1",
@@ -133,7 +133,7 @@ MOCK_RECORDS = [
         "source_url": "http://arxiv.org/abs/2403.10131v1",
         "license_code": "ARXIV-NONEXCLUSIVE",
         "chunk_ids": [],
-        "embedding_id": "",
+        "embedding_flag": False,
     },
     {
         "id": "arxiv:2104.07567v3",
@@ -157,7 +157,7 @@ MOCK_RECORDS = [
         "source_url": "http://arxiv.org/abs/2004.04906v3",
         "license_code": "ARXIV-NONEXCLUSIVE",
         "chunk_ids": [],
-        "embedding_id": "",
+        "embedding_flag": False,
     },
     {
         "id": "arxiv:2305.06983v1",
@@ -181,7 +181,7 @@ MOCK_RECORDS = [
         "source_url": "http://arxiv.org/abs/2305.06983v1",
         "license_code": "ARXIV-NONEXCLUSIVE",
         "chunk_ids": [],
-        "embedding_id": "",
+        "embedding_flag": False,
     },
 ]
 

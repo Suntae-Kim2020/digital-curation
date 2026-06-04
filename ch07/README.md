@@ -45,7 +45,7 @@ jupyter notebook ch07/ch07_prompt_patterns.ipynb
 | id, title, creator, … (Dublin Core 15) | Ch.3 §3.5 설계 + Ch.4 §4.4 수집 |
 | `source_url`, `license_code` | Ch.4 §4.4 |
 | `keywords`, `chunk_ids` | Ch.5 §5.5 |
-| `embedding_id` | Ch.6 §6.5 |
+| `embedding_flag` | Ch.6 §6.5 |
 | **`summary`** | **Ch.7 §7.4 ← 이번 챕터** |
 
 ## 🔄 빌드 스크립트의 두 모드

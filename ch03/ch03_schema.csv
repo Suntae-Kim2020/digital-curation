@@ -15,9 +15,9 @@ language,string,True,DC,ISO 639-1 (ko/en)
 relation,string,False,DC,관계 (isPartOf 등)
 coverage,string,False,DC,공간·시간 범위
 rights,string,False,DC,권리 자유 표기
-summary,string,False,AI,LLM 요약 (Ch.6 §6.4)
-keywords,string[],False,AI,추출 키워드 (Ch.4 §4.3)
+summary,string,False,AI,LLM 요약 (Ch.7 §7.4)
+keywords,string[],False,AI,추출 키워드 (Ch.5 §5.3)
 source_url,string,True,AI,원본 URL
 license_code,string,True,AI,CC-BY-4.0 등 표준 코드
-chunk_ids,string[],False,AI,청크 ID (Ch.4 §4.4)
-embedding_id,string,False,AI,벡터DB ID (Ch.5 §5.3)
+chunk_ids,string[],False,AI,청크 ID (Ch.5 §5.4)
+embedding_flag,boolean,False,AI,임베딩 처리 완료 여부 (Ch.6 §6.5)

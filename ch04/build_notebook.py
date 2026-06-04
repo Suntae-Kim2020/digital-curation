@@ -94,7 +94,7 @@ cells.append(new_markdown_cell(
     "## 2단계 · Ch.3 §3.4 스키마로 매핑\n"
     "\n"
     "출처마다 필드 이름이 다르므로, 본서 표준 스키마(DC 15 + AI 6)에 맞춰 통일한다.\n"
-    "이 단계에서 의미 차원 4필드(summary, keywords, chunk_ids, embedding_id)는 비워 두고\n"
+    "이 단계에서 의미 차원 필드(summary, keywords, chunk_ids)는 비워 두고 embedding_flag는 False로 두며\n"
     "후속 챕터에서 단계적으로 채운다."
 ))
 
@@ -125,7 +125,7 @@ cells.append(new_code_cell(
     "        'source_url':   e.find('atom:id', ns).text,\n"
     "        'license_code': 'ARXIV-NONEXCLUSIVE',\n"
     "        'chunk_ids':    [],          # Ch.5 §5.4\n"
-    "        'embedding_id': '',          # Ch.6 §6.3\n"
+    "        'embedding_flag': False,     # Ch.6 §6.5에서 True로\n"
     "    }\n"
     "\n"
     "records = [map_arxiv_entry(e, ns) for e in entries]\n"
@@ -236,7 +236,7 @@ cells.append(new_markdown_cell(
     "- Ch.5 §5.1 : 수집한 description 본문을 정제\n"
     "- Ch.5 §5.3 : 본문에서 keywords 자동 추출 (Kiwi)\n"
     "- Ch.5 §5.4 : 청킹 → chunk_ids 채우기\n"
-    "- Ch.6 §6.3 : 벡터DB 적재 → embedding_id 채우기\n"
+    "- Ch.6 §6.5 : 벡터DB 적재 → embedding_flag True로 켜기\n"
     "- Ch.7 §7.4 : LLM(Gemini)으로 summary 자동 생성"
 ))
 

@@ -40,7 +40,7 @@ jupyter notebook ch04/ch04_data_collection.ipynb
 ## 📊 산출물
 
 - `ch04_collected.jsonl` — 수집된 5건의 RAG 논문 (Ch.3 22필드 스키마)
-- 본문에서 의미 차원 4필드(`summary`, `keywords`, `chunk_ids`, `embedding_id`)는 비어 있음
+- 본문에서 의미 차원 필드(`summary`, `keywords`, `chunk_ids`)는 비어 있고 `embedding_flag`는 False
 - 후속 챕터에서 단계적으로 채움
 
 ## 🔗 본서 연결

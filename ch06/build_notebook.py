@@ -25,7 +25,7 @@ cells.append(new_markdown_cell(
     "- ChromaDB의 PersistentClient로 영구 저장 가능한 컬렉션을 만든다\n"
     "- 사용자 질의에 의미적으로 가까운 청크 상위 N개를 찾아낸다\n"
     "- 메타데이터(자료 ID)로 검색 범위를 좁힌다\n"
-    "- Ch.3 스키마의 embedding_id 필드를 채운다\n"
+    "- Ch.3 스키마의 embedding_flag 필드를 True로 켠다\n"
     "\n"
     "## 산출물\n"
     "1. `./chroma_db/` — PC에 저장된 ChromaDB 컬렉션 (다음 실행 때 재사용 가능)\n"
@@ -192,10 +192,10 @@ cells.append(new_code_cell(
 ))
 
 cells.append(new_markdown_cell(
-    "## 5단계 · §6.5 embedding_id 채워서 스키마 마무리\n"
+    "## 5단계 · §6.5 embedding_flag 켜서 스키마 마무리\n"
     "\n"
-    "Ch.3 스키마의 마지막 AI 확장 필드 `embedding_id`를 채운다.\n"
-    "자료 1건당 첫 청크의 ID를 대표값으로 둔다."
+    "Ch.3 스키마의 마지막 AI 확장 필드 `embedding_flag`를 True로 켠다.\n"
+    "자료의 모든 청크가 ChromaDB에 적재됐다는 신호다."
 ))
 
 cells.append(new_code_cell(
@@ -204,19 +204,20 @@ cells.append(new_code_cell(
     "for idx, row in collected.iterrows():\n"
     "    chunk_ids = row.get('chunk_ids') or []\n"
     "    if isinstance(chunk_ids, list) and chunk_ids:\n"
-    "        collected.at[idx, 'embedding_id'] = chunk_ids[0]\n"
+    "        collected.at[idx, 'embedding_flag'] = True\n"
     "\n"
     "collected.to_json('ch06_collected_embedded.jsonl',\n"
     "                  orient='records', lines=True, force_ascii=False)\n"
     "\n"
     "print('Ch.3 스키마 AI 확장 6필드 채움 상태:')\n"
-    "for f in ['summary','keywords','chunk_ids','embedding_id','source_url','license_code']:\n"
+    "for f in ['summary','keywords','chunk_ids','embedding_flag','source_url','license_code']:\n"
     "    if f not in collected.columns:\n"
     "        print(f'  {f:<15}: 0/{len(collected)} (없음)')\n"
     "        continue\n"
     "    filled = sum(1 for v in collected[f]\n"
     "                 if (isinstance(v, list) and v) or\n"
-    "                    (isinstance(v, str) and v.strip()))\n"
+    "                    (isinstance(v, str) and v.strip()) or\n"
+    "                    (isinstance(v, bool) and v))\n"
     "    print(f'  {f:<15}: {filled}/{len(collected)}')\n"
     "\n"
     "print('\\nsummary는 Ch.7 §7.4에서 LLM이 자동 생성합니다.')"
