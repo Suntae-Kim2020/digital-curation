@@ -31,10 +31,11 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="repla
 # Kiwi (선택) — 한국어 형태소 분석
 # =============================================================================
 try:
+    import kiwipiepy
     from kiwipiepy import Kiwi
     kiwi = Kiwi()
     HAS_KIWI = True
-    print(f"[Kiwi] 로드 성공 — 한국어 형태소 분석 사용 (v{kiwi.version})")
+    print(f"[Kiwi] 로드 성공 — 한국어 형태소 분석 사용 (v{kiwipiepy.__version__})")
 except Exception:
     HAS_KIWI = False
     print("[Kiwi] 미설치 — 간단한 영문 토큰화로 대체")
