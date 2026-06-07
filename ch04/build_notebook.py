@@ -224,7 +224,7 @@ cells.append(new_code_cell(
     "# Ch.3 스키마 불러오기 (저장소에 동봉)\n"
     "import urllib.request\n"
     "SCHEMA_URL = ('https://raw.githubusercontent.com/Suntae-Kim2020/'\n"
-    "              'digital-curation/main/ch02/ch02_schema.csv')\n"
+    "              'digital-curation/main/ch03/ch03_schema.csv')\n"
     "schema = pd.read_csv(SCHEMA_URL, encoding='utf-8-sig')\n"
     "errors = validate(df, schema)\n"
     "print('검증:', '통과' if not errors else errors)"

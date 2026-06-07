@@ -215,7 +215,7 @@ def main():
     print(df[["id", "date", "language", "license_code"]].to_string(index=False))
 
     # Ch.3 스키마와 검증
-    schema_path = "../ch02/ch02_schema.csv"
+    schema_path = "../ch03/ch03_schema.csv"
     try:
         schema = pd.read_csv(schema_path, encoding="utf-8-sig")
         required = schema[schema["required"]]["field"].tolist()
