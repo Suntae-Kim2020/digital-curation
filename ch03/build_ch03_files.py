@@ -2,7 +2,7 @@
 r"""
 ch03_schema.csv 와 ch03_sample.jsonl 생성기
 
-교재 Chapter 2 §3.4의 코드를 그대로 따른다.
+교재 Chapter 3 §3.4의 코드를 그대로 따른다.
 [메모리 참조] feedback_impl_pitfalls.md #1, #8 — utf-8-sig 사용
 """
 import io
