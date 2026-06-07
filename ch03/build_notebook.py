@@ -54,7 +54,7 @@ cells.append(new_markdown_cell(
     "\n"
     "**설치 — VS Code 통합 터미널에서**\n"
     "\n"
-    "1. `Ctrl + ` 단축키로 통합 터미널을 연다 (또는 메뉴 Terminal → New Terminal).\n"
+    "1. **단축키 Ctrl + 백틱(키보드 숫자 1 왼쪽 ~ 키)**을 누른다 — 또는 메뉴 Terminal → New Terminal.\n"
     "2. 프롬프트 맨 앞에 `(.venv)` 표시가 보이는지 확인. 없다면 Ch.1 §1.7.4 절차로 .venv를 선택한다.\n"
     "3. 다음 한 줄을 입력:\n"
     "\n"
