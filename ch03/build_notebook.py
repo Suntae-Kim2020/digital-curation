@@ -21,9 +21,9 @@ nb.metadata = {
 cells = []
 
 cells.append(new_markdown_cell(
-    "# Chapter 2 §3.4 실습 — 메타데이터 스키마 만들기\n"
+    "# Chapter 3 §3.4 실습 — 메타데이터 스키마 만들기\n"
     "\n"
-    "> 『AI 레디 데이터와 디지털 큐레이션』 Chapter 2의 §3.4 실습 노트북입니다.\n"
+    "> 『AI 레디 데이터와 디지털 큐레이션』 Chapter 3의 §3.4 실습 노트북입니다.\n"
     "> 작성자: 김선태 · 저장소: https://github.com/Suntae-Kim2020/digital-curation\n"
     "\n"
     "## 학습 목표\n"
