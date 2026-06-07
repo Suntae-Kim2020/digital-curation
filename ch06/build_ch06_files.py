@@ -42,7 +42,7 @@ def main():
 
     collected.to_json(
         "ch06_collected_embedded.jsonl",
-        orient="records", lines=True, force_ascii=False,
+        orient="records", lines=True, force_ascii=False, date_format="iso",
     )
 
     print(f"\n[OK] ch06_collected_embedded.jsonl ({len(collected)} 레코드)")

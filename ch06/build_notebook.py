@@ -219,7 +219,7 @@ cells.append(new_code_cell(
     "        collected.at[idx, 'embedding_flag'] = True\n"
     "\n"
     "collected.to_json('ch06_collected_embedded.jsonl',\n"
-    "                  orient='records', lines=True, force_ascii=False)\n"
+    "                  orient='records', lines=True, force_ascii=False, date_format='iso')\n"
     "\n"
     "print('Ch.3 스키마 AI 확장 6필드 채움 상태:')\n"
     "for f in ['summary','keywords','chunk_ids','embedding_flag','source_url','license_code']:\n"

@@ -177,7 +177,7 @@ sample_rows = [
 sample = pd.DataFrame(sample_rows)
 
 # JSON Lines로 저장 (리스트 필드 보존)
-sample.to_json("ch03_sample.jsonl", orient="records", lines=True, force_ascii=False)
+sample.to_json("ch03_sample.jsonl", orient="records", lines=True, force_ascii=False, date_format="iso")
 print(f"[OK] ch03_sample.jsonl ({len(sample)} records)")
 
 

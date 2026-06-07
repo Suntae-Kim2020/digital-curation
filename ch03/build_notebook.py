@@ -218,7 +218,7 @@ cells.append(new_markdown_cell(
 ))
 
 cells.append(new_code_cell(
-    "sample.to_json('ch03_sample.jsonl', orient='records', lines=True, force_ascii=False)\n"
+    "sample.to_json('ch03_sample.jsonl', orient='records', lines=True, force_ascii=False, date_format='iso')\n"
     "print('Saved:', 'ch03_sample.jsonl', '·', len(sample), 'records')\n"
     "\n"
     "# 첫 줄 확인\n"

@@ -148,7 +148,7 @@ def main():
     # 저장
     collected.to_json(
         "ch07_collected_complete.jsonl",
-        orient="records", lines=True, force_ascii=False,
+        orient="records", lines=True, force_ascii=False, date_format="iso",
     )
     print(f"\n[OK] ch07_collected_complete.jsonl ({len(collected)} 레코드)")
 

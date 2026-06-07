@@ -244,7 +244,7 @@ cells.append(new_code_cell(
     "    time.sleep(5)  # rate limit 방어\n"
     "\n"
     "collected.to_json('ch07_collected_complete.jsonl',\n"
-    "                  orient='records', lines=True, force_ascii=False)\n"
+    "                  orient='records', lines=True, force_ascii=False, date_format='iso')\n"
     "print(f'\\n저장: ch07_collected_complete.jsonl ({len(collected)} 레코드)')"
 ))
 

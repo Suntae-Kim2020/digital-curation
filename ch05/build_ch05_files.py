@@ -149,11 +149,11 @@ def main():
     # 저장
     collected.to_json(
         "ch05_collected_filled.jsonl",
-        orient="records", lines=True, force_ascii=False,
+        orient="records", lines=True, force_ascii=False, date_format="iso",
     )
     pd.DataFrame(all_chunks).to_json(
         "ch05_chunks.jsonl",
-        orient="records", lines=True, force_ascii=False,
+        orient="records", lines=True, force_ascii=False, date_format="iso",
     )
 
     print()

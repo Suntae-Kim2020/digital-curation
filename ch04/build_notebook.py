@@ -154,7 +154,7 @@ cells.append(new_markdown_cell(
 
 cells.append(new_code_cell(
     "df.to_json('ch04_collected.jsonl',\n"
-    "          orient='records', lines=True, force_ascii=False)\n"
+    "          orient='records', lines=True, force_ascii=False, date_format='iso')\n"
     "print('Saved: ch04_collected.jsonl', '·', len(df), 'records')\n"
     "\n"
     "with open('ch04_collected.jsonl', 'r', encoding='utf-8') as f:\n"

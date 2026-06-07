@@ -207,7 +207,7 @@ def main():
 
     # 저장
     df = pd.DataFrame(records)
-    df.to_json("ch04_collected.jsonl", orient="records", lines=True, force_ascii=False)
+    df.to_json("ch04_collected.jsonl", orient="records", lines=True, force_ascii=False, date_format="iso")
     print(f"\n[OK] ch04_collected.jsonl ({len(df)} records)")
 
     # 요약
