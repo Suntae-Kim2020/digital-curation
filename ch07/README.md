@@ -42,7 +42,7 @@ jupyter notebook ch07/ch07_prompt_patterns.ipynb
 
 | 필드 | 채움 단계 |
 |------|----------|
-| id, title, creator, … (Dublin Core 15) | Ch.3 §3.5 설계 + Ch.4 §4.4 수집 |
+| id, title, creator, … (Dublin Core 15) | Ch.3 §3.4 설계 + Ch.4 §4.4 수집 |
 | `source_url`, `license_code` | Ch.4 §4.4 |
 | `keywords`, `chunk_ids` | Ch.5 §5.5 |
 | `embedding_flag` | Ch.6 §6.5 |

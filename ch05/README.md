@@ -49,7 +49,7 @@ jupyter notebook ch05/ch05_text_preprocessing.ipynb
 
 ## ⚠️ 알려진 함정
 
-- **스캔본 PDF**: 본문이 이미지로 들어 있어 PyMuPDF가 텍스트를 못 뽑음 → OCR 필요 (Tesseract 또는 PaddleOCR; 책 §5.2 끝 '더 알아보기 ①' 참조)
+- **스캔본 PDF**: 본문이 이미지로 들어 있어 PyMuPDF가 텍스트를 못 뽑음 → OCR 필요 (Tesseract 또는 PaddleOCR; 책 Ch.5 끝 '더 알아보기 ①' 참조)
 - **HWP**: Python 3.12 이상을 안정 지원하는 라이브러리가 없음 → 한컴오피스로 PDF 변환 후 PyMuPDF로 처리 (책 §5.2.4 권장)
 - **Kiwi vs KoNLPy**: KoNLPy는 자바 의존이 까다로움 → 본서는 Kiwi(kiwipiepy)를 표준으로 채택
 - **1글자 명사**: '것', '수', '때' 같은 의존 명사가 키워드 상위를 점령 → `len(t.form) >= 2` 필터링
