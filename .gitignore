@@ -34,3 +34,9 @@ secrets/
 *.egg-info/
 dist/
 build/
+
+# 로컬 실습 산출물 — 독자가 직접 만드는 작업 파일/입력 (저장소 정본은 노트북)
+# 예: ch05/ch05_my_chunks.py, ch03/ch03_my_schema.py …
+ch*_my_*.py
+# 로컬 실습용 샘플 입력 (사용자 PC에서 준비, 저장소 비포함)
+sample.pdf
