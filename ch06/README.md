@@ -8,6 +8,7 @@
 | `ch06_collected_embedded.jsonl` | Ch.3 스키마 AI 확장 6필드 중 5개 채워진 완성형 (summary만 비어 있음) |
 | `build_ch06_files.py` | Ch.5 입력 → ch06 산출물 자동 생성 (API 키 불필요) |
 | `build_notebook.py` | 노트북 빌더 |
+| `genAPI_grounding.py` | **[보조·선택]** Google 검색 그라운딩 맛보기 — 핵심 실습 아님 (아래 '보조 자료' 참조) |
 
 `./chroma_db/` 폴더(컬렉션 SQLite 파일)는 본인 PC에서 노트북 실행 시 생성됩니다 — 저장소에는 커밋되지 않습니다.
 
@@ -54,6 +55,14 @@ jupyter notebook ch06/ch06_vector_search.ipynb
 
 - `./chroma_db/` — 노트북 실행 후 생성. 다음 실행 때 그대로 재사용
 - `ch06_collected_embedded.jsonl` — 스키마 AI 확장 6필드 중 5개 채워짐 (`summary`만 비어 있음, Ch.7 §7.4에서 채워짐)
+
+## 🧪 보조 자료 (선택) — 검색 그라운딩
+
+`genAPI_grounding.py`는 이 챕터의 핵심 실습(임베딩 → 검색 → RAG)에는 **필요 없는 선택용 보조 스크립트**다. "내 자료가 아니라 웹의 최신 정보가 필요할 때 LLM에 검색을 붙이는 다른 방법"을 맛본다.
+
+- **검색 그라운딩이란**: LLM이 답하기 전에 실시간으로 Google 검색을 수행해 그 결과를 근거로 답하고, 참고한 출처(제목·URL)를 함께 돌려주는 기능이다. 최신성 보완·환각 감소·출처 제시가 목적이며, 이는 Ch.8 §8.3 '답변에 출처 표시'와 같은 철학이다.
+- **RAG(이 챕터)와의 차이**: 그라운딩의 검색원은 **공개 웹(Google)**, 교재 RAG의 검색원은 **내 ChromaDB(내 자료)** 다. 그라운딩은 내 자료를 보지 않는다. 내 기관 자료로 답하게 하려면 RAG(Ch.8), 웹 최신 정보가 필요하면 그라운딩, 둘 다 쓰려면 직접 하이브리드로 구성한다.
+- **실행**: 같은 `GEMINI_API_KEY`로 `python genAPI_grounding.py`. 모델은 교재 표준 `gemini-2.5-flash`를 쓴다. 개념·동작 4단계·주의사항은 스크립트 상단 docstring에 자세히 적어 두었다.
 
 ## 🔗 본서 연결
 
