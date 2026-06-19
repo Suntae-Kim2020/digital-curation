@@ -95,6 +95,7 @@ def make_live_generator():
                 "temperature": 0.2,
                 "max_output_tokens": 600,
                 "response_mime_type": "application/json",
+                "thinking_config": {"thinking_budget": 0},
             },
         )
         try:
@@ -170,7 +171,7 @@ def main():
         print(f"  {f:<15}: {filled}/{len(collected)}  {bar}")
 
     if all(
-        sum(1 for v in collected[f] if (isinstance(v, list) and v) or (isinstance(v, str) and v.strip())) == len(collected)
+        sum(1 for v in collected[f] if (isinstance(v, list) and v) or (isinstance(v, str) and v.strip()) or (isinstance(v, bool) and v)) == len(collected)
         for f in ext_fields
     ):
         print("\n✅ 본서 스키마 22필드 모두 채워졌습니다. Ch.8 RAG 챗봇 준비 완료.")

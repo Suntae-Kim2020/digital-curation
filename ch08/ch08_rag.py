@@ -12,9 +12,11 @@ ch08_rag.py — 본서 RAG 챗봇 통합 모듈
 
 [필수 사전 조건]
 - GEMINI_API_KEY 환경변수 (책 §6.2.4 참조)
-- Ch.6의 ChromaDB 컬렉션이 ./chroma_db 또는 지정 경로에 적재돼 있음
+- Ch.6의 ChromaDB 컬렉션(../ch06/chroma_db)이 적재돼 있음
+- 경로는 이 파일 위치를 기준으로 잡으므로 어느 폴더에서 실행해도 동작한다.
 """
 import os
+from pathlib import Path
 import chromadb
 from google import genai
 
@@ -23,13 +25,20 @@ from google import genai
 # 설정
 # =============================================================================
 EMB_MODEL = "gemini-embedding-001"
-LLM_MODEL = "gemini-2.5-flash"
+LLM_MODEL = "gemini-2.5-flash-lite"
 COLLECTION_NAME = "ai_ready_chunks"
-CHROMA_DB_PATH = "./chroma_db"
+# 컬렉션은 Ch.6에서 ch06/chroma_db에 적재했다. 이 파일(ch08) 위치를 기준으로
+# 경로를 잡으므로 어느 폴더에서 실행하든(예: C:\DC) 항상 ch06/chroma_db를 가리킨다.
+_HERE = Path(__file__).resolve().parent
+CHROMA_DB_PATH = str(_HERE.parent / "ch06" / "chroma_db")
 
 DEFAULT_K = 3
 DEFAULT_TEMPERATURE = 0.2
 DEFAULT_MAX_OUTPUT_TOKENS = 600
+# gemini-2.5 계열은 답하기 전 '생각(thinking)'에 토큰을 쓰며, 그 양이
+# max_output_tokens 한도 안에 포함된다. 0으로 끄면 토큰 전부가 답변에 쓰여
+# 답변 잘림(빈 답변)을 막고 더 빠르고 저렴하다. (책 §7.2.2 참조)
+THINKING_BUDGET = 0
 
 
 # =============================================================================
@@ -116,6 +125,7 @@ def generate(prompt: str) -> str:
         config={
             "temperature": DEFAULT_TEMPERATURE,
             "max_output_tokens": DEFAULT_MAX_OUTPUT_TOKENS,
+            "thinking_config": {"thinking_budget": THINKING_BUDGET},
         },
     )
     return resp.text

@@ -2,25 +2,25 @@
 r"""
 my_rag.py — 팀 프로젝트용 RAG 모듈 템플릿
 
-ch08_rag.py를 그대로 복사하되 두 곳을 자관용으로 바꾼다.
+ch08_rag.py를 그대로 복사하되 컬렉션 이름·경로만 자관용으로 맞춘 것이다.
 책 §9.2.4 단계 4.
 
-수정 포인트:
-  1) COLLECTION_NAME — 팀이 Ch.6 단계에서 만든 컬렉션 이름
-  2) (선택) CHROMA_DB_PATH — 컬렉션을 저장한 경로 (기본 './chroma_db' 유지 가능)
-
-나머지 코드는 ch08_rag.py와 동일하다.
+기본값이 build_my_embed.py와 같은 컬렉션('my_thesis_chunks')·경로(이 파일 옆 chroma_db)로
+미리 맞춰져 있어, build_my_data → build_my_chunks → build_my_embed → build_my_summary 를
+순서대로 돌렸다면 수정 없이 바로 동작한다. 컬렉션 이름을 바꿨다면 아래 한 줄만 맞추면 된다.
 """
 import os
+from pathlib import Path
 import chromadb
 from google import genai
 
 
 # =============================================================================
-# ⭐ 팀이 수정할 곳 — 두 줄
+# ⭐ 팀 설정 — build_my_embed.py와 같은 값으로 (기본값 그대로면 수정 불필요)
 # =============================================================================
-COLLECTION_NAME = "YOUR_TEAM_COLLECTION"   # 예: 'my_thesis_chunks'
-CHROMA_DB_PATH  = "./chroma_db"            # 컬렉션 저장 경로
+HERE = Path(__file__).resolve().parent
+COLLECTION_NAME = "my_thesis_chunks"        # build_my_embed.py의 COLLECTION_NAME과 동일하게
+CHROMA_DB_PATH  = str(HERE / "chroma_db")   # build_my_embed.py가 만든 폴더(이 파일 옆)
 
 
 # =============================================================================
@@ -32,6 +32,10 @@ LLM_MODEL = "gemini-2.5-flash"
 DEFAULT_K = 3
 DEFAULT_TEMPERATURE = 0.2
 DEFAULT_MAX_OUTPUT_TOKENS = 600
+# gemini-2.5 계열은 답하기 전 '생각(thinking)'에 토큰을 쓰며, 그 양이
+# max_output_tokens 한도 안에 포함된다. 0으로 끄면 토큰 전부가 답변에 쓰여
+# 답변 잘림(빈 답변)을 막고 더 빠르고 저렴하다. (책 §7.2.2 참조)
+THINKING_BUDGET = 0
 
 
 # =============================================================================
@@ -105,6 +109,7 @@ def generate(prompt: str) -> str:
         config={
             "temperature": DEFAULT_TEMPERATURE,
             "max_output_tokens": DEFAULT_MAX_OUTPUT_TOKENS,
+            "thinking_config": {"thinking_budget": THINKING_BUDGET},
         },
     )
     return resp.text

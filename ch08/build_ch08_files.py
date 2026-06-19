@@ -51,8 +51,8 @@ def main():
     print("\n[2] 런타임 점검 (본인 PC에서 실행 시)")
     print("  [필요] 환경변수 GEMINI_API_KEY (책 §6.2.4)")
     print("  [필요] Ch.6 ChromaDB 컬렉션 'ai_ready_chunks' (책 §6.3)")
-    print("         확인: python -c \"import chromadb; "
-          "print(chromadb.PersistentClient('./chroma_db').get_collection('ai_ready_chunks').count())\"")
+    print("         확인(ch08 폴더에서): python -c \"import chromadb; "
+          "print(chromadb.PersistentClient('../ch06/chroma_db').get_collection('ai_ready_chunks').count())\"")
 
     # 시연 질의 5건 — 양자컴퓨팅 환각 시험 포함
     DEMO_QUERIES = [

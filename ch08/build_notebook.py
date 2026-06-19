@@ -52,7 +52,8 @@ cells.append(new_code_cell(
     ")\n"
     "\n"
     "import chromadb\n"
-    "db = chromadb.PersistentClient(path='./chroma_db')\n"
+    "# 컬렉션은 Ch.6에서 ch06/chroma_db에 적재했다(이 노트북은 ch08 폴더에서 실행).\n"
+    "db = chromadb.PersistentClient(path='../ch06/chroma_db')\n"
     "try:\n"
     "    col = db.get_collection('ai_ready_chunks')\n"
     "    print(f'ChromaDB 컬렉션 OK — 청크 {col.count()}개 적재됨')\n"
@@ -76,28 +77,38 @@ cells.append(new_code_cell(
 ))
 
 cells.append(new_markdown_cell(
-    "## 2단계 · §8.2.4 첫 RAG 호출\n"
+    "## 2단계 · §8.2.4 첫 RAG 호출 — 답변 보기\n"
     "\n"
-    "한 줄짜리 질의를 던지고 답변·출처·거리값을 함께 출력한다."
+    "한 줄짜리 질의를 던져 답변 본문을 먼저 확인한다. 출처(citation)는 다음 단계 §8.3에서 붙인다."
 ))
 
 cells.append(new_code_cell(
     "r = ask_rag('RAG가 환각을 줄이는 원리는?')\n"
-    "print_rag_result(r)"
+    "print(r['answer'])        # 답변 본문만 — 그림 8.1"
 ))
 
 cells.append(new_markdown_cell(
-    "## 3단계 · §8.3.3 자세한 출력 — 원본 청크까지\n"
+    "## 3단계 · §8.3.2 답변에 출처(citation) 붙이기\n"
+    "\n"
+    "같은 결과 r을 print_rag_result로 출력하면 답변 + 인용한 청크 ID + 거리값이 함께 보인다."
+))
+
+cells.append(new_code_cell(
+    "print_rag_result(r)       # 답변 + 출처 + 거리 — 그림 8.2"
+))
+
+cells.append(new_markdown_cell(
+    "## 4단계 · §8.3.3 자세한 출력 — 원본 청크까지\n"
     "\n"
     "답변과 함께 검색된 원본 청크의 앞부분 200자까지 함께 본다. 답변과 자료를 즉시 대조 가능."
 ))
 
 cells.append(new_code_cell(
-    "ask_rag_verbose('DPR과 BM25의 차이는?', k=3)"
+    "ask_rag_verbose('DPR과 BM25의 차이는?', k=3)   # 답변 + 원본 청크 — 그림 8.3"
 ))
 
 cells.append(new_markdown_cell(
-    "## 4단계 · §8.2.2 메타데이터 필터로 범위 좁히기\n"
+    "## 5단계 · §8.2.2 메타데이터 필터로 범위 좁히기\n"
     "\n"
     "특정 자료의 청크 안에서만 검색하고 싶을 때."
 ))
@@ -113,7 +124,7 @@ cells.append(new_code_cell(
 ))
 
 cells.append(new_markdown_cell(
-    "## 5단계 · 시연 질의 5건 — 마지막은 환각 방어 시험\n"
+    "## 6단계 · 시연 질의 5건 — 마지막은 환각 방어 시험\n"
     "\n"
     "다섯 번째 질문은 본서 자료(arXiv RAG 논문 5건)에 없는 주제다. \n"
     "RAG가 \"제공된 자료에서는 확인되지 않습니다\"라고 답하면 환각 방어 작동.\n"
@@ -131,7 +142,7 @@ cells.append(new_code_cell(
 ))
 
 cells.append(new_markdown_cell(
-    "## 6단계 · §8.4 답변 품질 직접 점검\n"
+    "## 7단계 · §8.4 답변 품질 직접 점검\n"
     "\n"
     "다음 세 가지를 손수 점검해 보세요.\n"
     "\n"
@@ -143,7 +154,7 @@ cells.append(new_markdown_cell(
 ))
 
 cells.append(new_markdown_cell(
-    "## 7단계 · 본인 질문 던져 보기\n"
+    "## 8단계 · 본인 질문 던져 보기\n"
     "\n"
     "아래 셀의 `MY_QUERY`를 자유롭게 바꿔 가며 챗봇과 대화해 보세요."
 ))

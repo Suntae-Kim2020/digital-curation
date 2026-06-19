@@ -22,22 +22,26 @@ mkdir data
 
 ## 파일
 
-| 파일 | 용도 |
-|------|------|
-| `build_my_data.py` | data/의 PDF → my_collected.jsonl (본서 스키마) |
-| `my_rag.py` | ch08_rag.py 복사본, COLLECTION_NAME만 자관용으로 수정 |
+모두 파일 위치(this folder) 기준으로 경로를 잡으므로 어느 폴더에서 실행해도 동작하고,
+컬렉션 이름·경로가 서로 맞춰져 있어 **순서대로 실행만** 하면 된다(추가 수정 불필요).
+
+| 파일 | 용도 | 입력 → 출력 |
+|------|------|------|
+| `build_my_data.py` | data/의 PDF → 본서 스키마 매핑 | `data/*.pdf` → `my_collected.jsonl` |
+| `build_my_chunks.py` | 청킹 + 키워드 (API 불필요) | `my_collected.jsonl` → `my_chunks.jsonl`, `my_collected_filled.jsonl` |
+| `build_my_embed.py` | 임베딩 + ChromaDB 적재 (Gemini) | `my_chunks.jsonl` → `chroma_db/`(컬렉션 `my_thesis_chunks`), `my_collected_embedded.jsonl` |
+| `build_my_summary.py` | LLM 요약 → 스키마 완성 (Gemini) | `my_collected_embedded.jsonl` → `my_collected_complete.jsonl` |
+| `my_rag.py` | RAG 챗봇 모듈 (ch08_rag.py 기반) | `chroma_db/` 컬렉션 → 답변+출처 |
 
 ## 4단계 빠른 진행 (책 §9.2)
 
 ```
 [15분] 단계 1 — PDF 10~20개를 data/에 모음
-[20분] 단계 2 — python build_my_data.py
-                → my_collected.jsonl
-[30분] 단계 3 — Ch.5/Ch.6/Ch.7 코드를 입력 파일·컬렉션 이름만 바꿔 실행
-                → my_chunks.jsonl
-                → ChromaDB 컬렉션 (이름은 자관용으로)
-                → my_collected_filled.jsonl
-[25분] 단계 4 — my_rag.py에서 COLLECTION_NAME 수정 후 실행
+[20분] 단계 2 — python build_my_data.py        → my_collected.jsonl
+[30분] 단계 3 — python build_my_chunks.py       → my_chunks.jsonl, my_collected_filled.jsonl
+                python build_my_embed.py        → chroma_db/ 컬렉션, my_collected_embedded.jsonl
+                python build_my_summary.py      → my_collected_complete.jsonl (AI 6필드 완성)
+[25분] 단계 4 — python -c "from my_rag import ask_rag, print_rag_result; print_rag_result(ask_rag('질문'))"
                 → 시험 질의 5건 (마지막은 환각 방어)
 ```
 

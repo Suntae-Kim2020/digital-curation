@@ -19,8 +19,14 @@ import os
 import sys
 import json
 import glob
+from pathlib import Path
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+
+# 이 스크립트 파일이 있는 폴더(my_project)를 기준으로 경로를 잡는다.
+# → C:\DC 등 어느 폴더에서 실행해도 항상 my_project/data 를 본다.
+HERE = Path(__file__).resolve().parent
+DATA_DIR = HERE / "data"
 
 try:
     import fitz  # PyMuPDF
@@ -71,13 +77,13 @@ def extract_pdf_text(path: str) -> str:
 # 메인
 # =============================================================================
 def main():
-    pdfs = sorted(glob.glob("data/*.pdf"))
+    pdfs = sorted(glob.glob(str(DATA_DIR / "*.pdf")))
     if not pdfs:
-        print("[ERR] data/ 폴더에 PDF가 없습니다.")
-        print("       10~20개의 PDF를 data/ 폴더에 복사한 뒤 다시 실행하세요.")
+        print(f"[ERR] {DATA_DIR} 폴더에 PDF가 없습니다.")
+        print("       10~20개의 PDF를 위 폴더에 복사한 뒤 다시 실행하세요.")
         sys.exit(1)
 
-    print(f"[입력] data/ 폴더 PDF {len(pdfs)}개")
+    print(f"[입력] {DATA_DIR} 폴더 PDF {len(pdfs)}개")
 
     records = []
     for path in pdfs:
@@ -117,14 +123,15 @@ def main():
         records.append(record)
         print(f"  [OK]  {path}  ({len(description):,}자)")
 
-    with open("my_collected.jsonl", "w", encoding="utf-8") as f:
+    out_path = HERE / "my_collected.jsonl"
+    with open(out_path, "w", encoding="utf-8") as f:
         for r in records:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
 
-    print(f"\n[저장] my_collected.jsonl ({len(records)} 레코드)")
+    print(f"\n[저장] {out_path} ({len(records)} 레코드)")
     print()
     print("[다음 단계]")
-    print("  Ch.5 build_ch05_files.py를 my_collected.jsonl로 입력 변경해 실행")
+    print("  python build_my_chunks.py 실행")
     print("  → my_chunks.jsonl + my_collected_filled.jsonl 생성됨")
 
 
