@@ -40,3 +40,7 @@ build/
 ch*_my_*.py
 # 로컬 실습용 샘플 입력 (사용자 PC에서 준비, 저장소 비포함)
 sample.pdf
+
+# Ch.9 자관 응용 폴더 — 독자가 직접 만드는 개인 작업물(자관 PDF·데이터·결과)
+# 저장소 정본은 ch09/templates/. 독자는 templates를 my_project로 복사해 작업한다.
+my_project/
