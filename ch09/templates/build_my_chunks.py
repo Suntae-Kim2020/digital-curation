@@ -21,7 +21,9 @@ from collections import Counter
 
 import pandas as pd
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+# line_buffering=True: 진행 메시지가 끝에 몰리지 않고 한 줄씩 즉시 출력되게 한다
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8",
+                              errors="replace", line_buffering=True)
 
 # 이 파일이 있는 폴더(my_project) 기준 경로
 HERE = Path(__file__).resolve().parent
@@ -106,13 +108,17 @@ def main():
     collected = pd.read_json(INPUT, lines=True)
     print(f"  → {len(collected)} 레코드")
 
+    total = len(collected)
     all_chunks = []
-    for idx, row in collected.iterrows():
+    for n, (idx, row) in enumerate(collected.iterrows(), start=1):
         doc_id = row["id"]
         text = row.get("description", "") or ""
         if not text:
+            print(f"  [{n}/{total}] {doc_id} — 본문 없음, 건너뜀")
             continue
 
+        # 청킹·키워드 추출은 자료가 길면 수 초 걸리므로 시작할 때 먼저 알린다
+        print(f"  [{n}/{total}] {doc_id} — 청킹·키워드 추출 중…")
         collected.at[idx, "keywords"] = extract_keywords(text, top_k=10)
 
         chunks = chunk_sentence_overlap(text, max_chars=800, overlap_sents=1)
@@ -129,6 +135,7 @@ def main():
                 "text":        ctext,
             })
         collected.at[idx, "chunk_ids"] = chunk_ids
+        print(f"    → 청크 {len(chunks)}개")
 
     collected.to_json(OUT_FILLED, orient="records", lines=True,
                       force_ascii=False, date_format="iso")
