@@ -21,7 +21,9 @@ import json
 import glob
 from pathlib import Path
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+# line_buffering=True: 진행 메시지가 끝에 몰리지 않고 한 줄씩 즉시 출력되게 한다
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8",
+                              errors="replace", line_buffering=True)
 
 # 이 스크립트 파일이 있는 폴더(my_project)를 기준으로 경로를 잡는다.
 # → C:\DC 등 어느 폴더에서 실행해도 항상 my_project/data 를 본다.
@@ -85,13 +87,17 @@ def main():
 
     print(f"[입력] {DATA_DIR} 폴더 PDF {len(pdfs)}개")
 
+    total = len(pdfs)
     records = []
-    for path in pdfs:
+    for n, path in enumerate(pdfs, start=1):
+        name = os.path.basename(path)
+        # PDF가 크면 추출에 수 초 걸리므로 시작할 때 먼저 알린다(멈춘 게 아님)
+        print(f"  [{n}/{total}] {name} — 본문 추출 중…")
         meta = extract_metadata_from_filename(path)
         description = extract_pdf_text(path)
 
         if not description.strip():
-            print(f"  [경고] {path} — 본문 추출 실패. 스캔본 PDF일 가능성. OCR 필요 (책 §5.2 더 알아보기 ①)")
+            print(f"    [경고] 본문 추출 실패 — 스캔본 PDF일 가능성. OCR 필요 (책 §5.2 더 알아보기 ①)")
             continue
 
         record = {
@@ -121,7 +127,7 @@ def main():
             "embedding_flag": False,
         }
         records.append(record)
-        print(f"  [OK]  {path}  ({len(description):,}자)")
+        print(f"    → {len(description):,}자 추출 완료")
 
     out_path = HERE / "my_collected.jsonl"
     with open(out_path, "w", encoding="utf-8") as f:
