@@ -160,20 +160,23 @@ def print_rag_result(result: dict) -> None:
 # 데모
 # =============================================================================
 if __name__ == "__main__":
-    import json
+    # =========================================================================
+    # 자관 자료에 맞춘 시험 질의 5개. 아래 '...'를 실제 질의로 바꿔 넣는다.
+    #   1  기본 사실 확인   (예: 'OO 정책의 변천을 알려 줘')
+    #   2  두 항목 비교
+    #   3  원리·과정 설명
+    #   4  추천·매칭
+    #   5  환각 방어 시험 — 자료에 '일부러 없는' 주제를 질문 (책 §8.5)
+    # =========================================================================
+    TEST_QUERIES = [
+        '...',
+        '...',
+        '...',
+        '...',
+        '자료에 없는 주제 — 환각 방어 시험',
+    ]
 
-    # 시험 질의 5개를 ch09_demo_queries_template.json 또는 팀 직접 작성
-    # 경로는 이 파일 위치 기준이라 어느 폴더에서 실행해도 동작한다(HERE = templates/, 그 위가 ch09/).
-    queries_file = HERE.parent / "ch09_demo_queries_template.json"
-    with open(queries_file, "r", encoding="utf-8") as f:
-        template = json.load(f)
-        queries = [q["your_query"] for q in template["queries"]
-                   if q["your_query"] != "(여기에 팀 질의 작성)"]
-
-    if not queries:
-        print("[안내] ch09_demo_queries_template.json의 your_query 자리에")
-        print("       팀 질의를 채워 넣은 뒤 다시 실행하세요.")
-        sys.exit(0)
-
-    for q in queries:
+    for q in TEST_QUERIES:
+        if q == '...':
+            continue                 # 아직 안 채운 자리는 건너뜀
         print_rag_result(ask_rag(q))

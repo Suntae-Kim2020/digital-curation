@@ -78,60 +78,6 @@ RUBRIC = {
 }
 
 
-# =============================================================================
-# 시험 질의 템플릿 — 책 §9.2.4
-# =============================================================================
-DEMO_QUERIES_TEMPLATE = {
-    "instructions": (
-        "각 팀은 다음 5개 자리에 자기 기관 자료에 맞춘 실제 질의를 채워 넣는다. "
-        "1~4번은 답이 자료에 분명히 있는 검증 가능 질의로. "
-        "5번은 반드시 '자료에 없는 주제'로 두어 환각 방어 시험을 한다 (책 §8.5 참조)."
-    ),
-    "queries": [
-        {
-            "n": 1,
-            "type": "fact_lookup",
-            "description": "기본 사실 확인 — 자료에서 직접 찾을 수 있는 정보",
-            "example_for_thesis": "최근 5년간 가장 자주 쓰인 데이터 증강 기법은?",
-            "example_for_archive": "1990년대 행정 개혁의 주요 정책 변화는?",
-            "your_query": "(여기에 팀 질의 작성)",
-        },
-        {
-            "n": 2,
-            "type": "comparison",
-            "description": "두 항목 비교 — 자료에서 양쪽 근거를 찾아야 함",
-            "example_for_thesis": "BERT와 GPT 계열을 사용한 학위논문 수 비교는?",
-            "example_for_archive": "정책 A와 정책 B의 도입 배경 차이는?",
-            "your_query": "(여기에 팀 질의 작성)",
-        },
-        {
-            "n": 3,
-            "type": "explanation",
-            "description": "원리·과정 설명 — 자료에서 메커니즘을 추출",
-            "example_for_thesis": "한국어 BERT를 fine-tuning할 때 자주 쓰이는 절차는?",
-            "example_for_archive": "OO 사업의 의사결정 절차를 단계별로 설명",
-            "your_query": "(여기에 팀 질의 작성)",
-        },
-        {
-            "n": 4,
-            "type": "recommendation",
-            "description": "추천·매칭 — 자료 안에서 적합한 것을 골라야 함",
-            "example_for_thesis": "데이터 증강을 처음 공부하는 학생에게 어느 논문을 추천?",
-            "example_for_archive": "이 주제에 관심 있는 연구자가 먼저 봐야 할 자료는?",
-            "your_query": "(여기에 팀 질의 작성)",
-        },
-        {
-            "n": 5,
-            "type": "out_of_scope",
-            "description": "⚠️ 환각 방어 시험 — 자료에 없는 주제를 일부러 질문",
-            "example_for_thesis": "양자 컴퓨팅 분야 학위논문이 몇 편 있나요? (자료에 없음)",
-            "example_for_archive": "최근 인공지능 정책의 영향은? (자료가 1990년대만 다룸)",
-            "your_query": "(여기에 팀 질의 작성 — '확인되지 않습니다' 답을 기대)",
-        },
-    ],
-}
-
-
 def main():
     print("=" * 60)
     print(" Chapter 9. 미니 프로젝트 — 팀 자산 생성")
@@ -142,10 +88,7 @@ def main():
         json.dump(RUBRIC, f, ensure_ascii=False, indent=2)
     print("\n[OK] ch09_rubric.json  (4기준 × 4단계 평가 루브릭)")
 
-    # 질의 템플릿 저장
-    with open("ch09_demo_queries_template.json", "w", encoding="utf-8") as f:
-        json.dump(DEMO_QUERIES_TEMPLATE, f, ensure_ascii=False, indent=2)
-    print("[OK] ch09_demo_queries_template.json  (5개 시험 질의 템플릿)")
+    # 시험 질의는 templates/my_rag.py 맨 아래 TEST_QUERIES 리스트에 직접 작성 (책 §9.2.4)
 
     # 템플릿 파일 안내
     print("\n[팀 템플릿]")

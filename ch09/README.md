@@ -7,11 +7,10 @@
 | 파일 | 용도 |
 |------|------|
 | `ch09_rubric.json` | **평가 루브릭** — 4기준 × 4단계 (16점 만점, 통과선 12점) |
-| `ch09_demo_queries_template.json` | 시험 질의 5개 템플릿 (환각 방어 시험 포함) |
 | `templates/build_my_data.py` | 팀용 PDF → 스키마 매핑 빌더 |
-| `templates/my_rag.py` | 팀용 RAG 모듈 (ch08_rag 복사본, COLLECTION_NAME만 수정) |
+| `templates/my_rag.py` | 팀용 RAG 모듈 (ch08_rag 복사본). 맨 아래 `TEST_QUERIES`에 시험 질의 작성 |
 | `templates/README.md` | 팀 작업 시작 가이드 |
-| `build_ch09_files.py` | 본 폴더의 루브릭·질의 템플릿 재생성 + 워크숍 안내 출력 |
+| `build_ch09_files.py` | 본 폴더의 루브릭 재생성 + 워크숍 안내 출력 |
 
 ## 🎯 학습 목표
 
@@ -66,7 +65,7 @@ python build_my_data.py
 
 ```
 # my_rag.py에서 COLLECTION_NAME 한 줄만 수정
-# ch09_demo_queries_template.json의 your_query 자리 5개에 팀 질의 작성
+# my_rag.py 맨 아래 TEST_QUERIES 리스트에 팀 질의 5개 작성 (마지막은 환각 방어용)
 python my_rag.py
 ```
 
