@@ -24,7 +24,9 @@ import chromadb
 from google import genai
 from google.genai import errors
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+# line_buffering=True: 진행 메시지가 끝에 몰리지 않고 한 줄씩 즉시 출력되게 한다
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8",
+                              errors="replace", line_buffering=True)
 
 # 이 파일이 있는 폴더(my_project) 기준 경로
 HERE = Path(__file__).resolve().parent
@@ -92,18 +94,21 @@ def main():
         metas = [{"doc_id": r["doc_id"], "chunk_index": int(r["chunk_index"])}
                  for _, r in new_chunks.iterrows()]
 
-        # 100개씩 나눠서 임베딩·적재 (Gemini 배치 상한 100)
+        # EMBED_BATCH개씩 나눠서 임베딩·적재
         total = len(texts)
-        for i in range(0, total, EMBED_BATCH):
+        n_batches = (total + EMBED_BATCH - 1) // EMBED_BATCH
+        for bi, i in enumerate(range(0, total, EMBED_BATCH), start=1):
             b_texts = texts[i:i + EMBED_BATCH]
             b_ids = ids[i:i + EMBED_BATCH]
             b_metas = metas[i:i + EMBED_BATCH]
 
+            # 임베딩 호출은 수 초 걸리므로, 시작할 때 먼저 알린다(멈춘 게 아님)
+            print(f"  [배치 {bi}/{n_batches}] {len(b_texts)}개 임베딩 요청 중…")
             embeddings = embed_batch_with_retry(ai, b_texts)
 
             collection.add(ids=b_ids, documents=b_texts,
                            embeddings=embeddings, metadatas=b_metas)
-            print(f"  적재 {min(i + EMBED_BATCH, total)}/{total}")
+            print(f"    → 적재 {min(i + EMBED_BATCH, total)}/{total} 완료")
             if i + EMBED_BATCH < total:
                 time.sleep(4)  # 분당 토큰 한도(TPM) 여유 — 배치 간 간격
 

@@ -20,7 +20,9 @@ from pathlib import Path
 
 import pandas as pd
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+# line_buffering=True: 진행 메시지가 끝에 몰리지 않고 한 줄씩 즉시 출력되게 한다
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8",
+                              errors="replace", line_buffering=True)
 
 HERE = Path(__file__).resolve().parent
 INPUT = HERE / "my_collected_embedded.jsonl"
@@ -90,12 +92,14 @@ def main():
         print("\n[자리표시 모드] API 키 없음 — summary에 자리표시 문구를 넣습니다")
         print("            (키 등록 후 다시 실행하면 실제 요약으로 채워집니다)")
 
-    for idx, row in collected.iterrows():
-        if row.get("summary"):
-            continue  # 이미 채워진 자료는 건너뜀 (재실행 안전)
+    # 요약이 비어 있는 레코드만 처리 (이미 채워진 자료는 건너뜀 — 재실행 안전)
+    todo = [idx for idx, row in collected.iterrows() if not row.get("summary")]
+    print(f"요약 생성 대상: {len(todo)}건")
 
+    for n, idx in enumerate(todo, start=1):
+        row = collected.loc[idx]
         if live:
-            print(f"  [{idx+1}/{len(collected)}] {row['id']} 요약 생성 중…")
+            print(f"  [{n}/{len(todo)}] {row['id']} 요약 생성 중…")
             summary = live(row["title"], row.get("description", ""))
             time.sleep(5)  # rate limit 방어
         else:
