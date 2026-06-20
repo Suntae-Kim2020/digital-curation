@@ -20,4 +20,4 @@ keywords,string[],False,AI,추출 키워드 (Ch.5 §5.3)
 source_url,string,True,AI,원본 URL
 license_code,string,True,AI,CC-BY-4.0 등 표준 코드
 chunk_ids,string[],False,AI,청크 ID (Ch.5 §5.4)
-embedding_flag,boolean,False,AI,벡터DB ID (Ch.6 §6.3)
+embedding_flag,boolean,False,AI,임베딩 처리 완료 여부 (Ch.6 §6.5)
