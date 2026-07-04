@@ -2,7 +2,7 @@
 
 이 책 Ch.1~Ch.10에서 인용한 URL의 보존 상태를 관리합니다. 출간 이후 원본이 사라져도 **Wayback Machine 스냅숏**으로 내용을 확인할 수 있습니다.
 
-> 표기: ✅ 보존(스냅숏 있음) · ⚠️ 미보존(사이트가 아카이브를 차단 — 보존 이력 조회 링크 제공)
+> 표기: ✅ 보존(스냅숏 있음) · ✅ 대체 보존(로그인 필요 등으로 원본 대신 동일 내용의 공개 페이지 스냅숏) · ⚠️ 미보존(아카이브 차단 — 보존 이력 조회 링크 제공)
 > 스냅숏 출처: [Wayback Machine](https://web.archive.org/) · 새 스냅숏은 [Save Page Now](https://web.archive.org/save)로 생성
 > 마지막 일괄 점검: **2026-07-04**
 
@@ -112,7 +112,7 @@
 |---|----------|------|----------------|
 | 1 | https://ai.google.dev/gemini-api/docs | ✅ 신규 보존 | [스냅숏](https://web.archive.org/web/20260703231701/https://ai.google.dev/gemini-api/docs) |
 | 2 | https://ai.google.dev/gemini-api/docs/models | ✅ 보존 | [스냅숏 (2026-07-01)](http://web.archive.org/web/20260701200012/https://ai.google.dev/gemini-api/docs/models) |
-| 3 | https://aistudio.google.com/rate-limit | ✅ 신규 보존 | [스냅숏](https://web.archive.org/web/20260704003753/https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Faistudio.google.com%2Frate-limit&dsh=S1040483526%3A1783125470253256&followup=https%3A%2F%2Faistudio.google.com%2Frate-limit&passive=1209600&flowName=WebLiteSignIn&flowEntry=ServiceLogin&ifkv=AcDsRvxVURIXILu6XInZqCf3_uEV4sp4dK-QPiWCLZCAuq796D3V9viV-k8aem1fXm4jin5lWRDaLg) |
+| 3 | https://aistudio.google.com/rate-limit | ✅ 대체 보존 | [스냅숏 (rate-limits 문서, 2026-06-28)](http://web.archive.org/web/20260628210853/https://ai.google.dev/gemini-api/docs/rate-limits) |
 | 4 | https://docs.claude.com/ | ✅ 신규 보존 | [스냅숏](https://web.archive.org/web/20260703063932/https://platform.claude.com/docs/en/home) |
 | 5 | https://platform.openai.com/docs | ✅ 보존 | [스냅숏 (2025-11-22)](http://web.archive.org/web/20251122094014/https://platform.openai.com/docs) |
 
